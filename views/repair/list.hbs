@@ -1,0 +1,45 @@
+<!--Titlul paginii-->
+<h2 align="center">Repair List</h2>
+
+<!--Buton de creeare a unei noi intrari-->
+<div align="center" style="padding: 10px;">
+    <a class="btn btn-primary" href="/repair"><i class="fa fa-plus" style="padding: 5px;"></i>Create New</a>
+</div>
+
+<!--Tabelul cu intrari salvate in DB-->
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th>Client's Name</th>
+            <th>Client's Car Model</th>
+            <th>Plate Number</th>
+            <th>Mechanic's Name</th>
+            <th>Worked Hours</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody class="table-bordered">
+        <!-- Functie Handlebars ce trece prin fiecare intrare in DB-->
+        {{#each list}}
+        <tr>
+            <td>{{this.clientName}}</td>
+            <td>{{this.carModel}}</td>
+            <td>{{this.plateNumber}}</td>
+            <td>{{this.mechanicName}}</td>
+            <td>{{this.workedHours}}</td>
+
+            <!--Butoane pentru a edita sau a sterge o intrare in tabel-->
+            <td>
+                <button class="btn btn-warning">
+                    <a href="/repair/{{this._id}}" style="color: inherit">Modify</a>
+                </button>
+                <button class="btn btn-danger">
+                    <a href="/repair/delete/{{this._id}}"
+                        onclick="return confirm('Are you sure you want to delete this record ?');"
+                        style="color: inherit">Delete</a>
+                </button>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

@@ -1,0 +1,38 @@
+<!--Titlul paginii-->
+<h2 align="center">{{viewTitle}}</h2>
+
+<!--Tabel pentru introducerea unei intrari in DB-->
+<form action="/repair" method="POST" autocomplete="off">
+    <input type="hidden" name="_id" value="{{repair._id}}">
+    <div class="form-group">
+        <label>Client Name</label>
+        <input type="text" class="form-control form-control-lg" name="clientName" placeholder="Client's Name"
+            value="{{repair.clientName}}">
+    </div>
+    <div class="form-group">
+        <label>Car Model</label>
+        <input type="text" class="form-control form-control-lg" name="carModel" placeholder="Model of the repaired car."
+            value="{{repair.carModel}}">
+    </div>
+    <div class="form-group">
+        <label>Plate Number</label>
+        <input type="text" class="form-control form-control-lg" name="plateNumber"
+            placeholder="The number plate of the repaired car." value="{{repair.plateNumber}}">
+    </div>
+    <div class="form-group">
+        <label>Mechanic's Name</label>
+        <input type="text" class="form-control form-control-lg" name="mechanicName"
+            placeholder="The name of the mechanic that repairs the car." value="{{repair.mechanicName}}">
+    </div>
+    <div class="form-group">
+        <label>Worked Hours</label>
+        <input type="text" class="form-control form-control-lg" name="workedHours"
+            placeholder="Number of hours worked to repair the car." value="{{repair.workedHours}}">
+    </div>
+    <!--Butoane pentru Submit si View All-->
+    <div class="form-group" align="center" style="margin: 5px;">
+        <button type="submit" class="btn btn-success"><i class="fa fa-database"
+                style="padding: 5px;"></i>Submit</button>
+        <a class="btn btn-primary" href="/repair/list"><i class="fa fa-list-alt" style="padding: 5px;"></i>View All</a>
+    </div>
+</form>
